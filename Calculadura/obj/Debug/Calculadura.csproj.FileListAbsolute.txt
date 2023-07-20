@@ -1,0 +1,8 @@
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\bin\Debug\Calculadura.exe.config
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\bin\Debug\Calculadura.exe
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\bin\Debug\Calculadura.pdb
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\obj\Debug\Calculadura.csproj.AssemblyReference.cache
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\obj\Debug\Calculadura.csproj.SuggestedBindingRedirects.cache
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\obj\Debug\Calculadura.csproj.CoreCompileInputs.cache
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\obj\Debug\Calculadura.exe
+C:\Users\bruno.fsilva72\source\repos\Calculadura\Calculadura\obj\Debug\Calculadura.pdb
