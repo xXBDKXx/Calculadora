@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -90,10 +91,116 @@ namespace Calculadura
             return resultado;
         }//Fim do Metodo Tabuada Num2
 
-        public string BinarioDecimal()
+        public string DecimalBinario(int n)
         {
-            
-            return 
-        }
-    }
+            int resto;
+            string result = string.Empty;
+            while (n > 0)
+            {
+                resto = n % 2;
+                n /= 2;
+                result += resto.ToString(); 
+            }
+
+            string invertido = "";
+
+            for (int i = result.Length; i > 0; i--)
+            {
+                string letra = result.Substring(i - 1, 1);
+                invertido += letra;
+            }
+            return invertido;
+        }//fim do método
+
+        //It just works!!
+        public string BinarioDecimal(int n)
+        {
+            int dec = 0;
+            int resto, basenum = 1;
+            while (n > 0)
+            {
+                resto = n % 10;
+                dec += resto * basenum;
+                basenum *=  2;
+                n /= 10;
+            }//Fim do While
+            return dec.ToString();
+        }//Fim do metodo
+
+        public string Bhaskara(double num)
+        {
+            double delta = 0;
+            string msg = "";
+            double x1 = 0;
+            double x2 = 0;
+            delta = (Math.Pow(getSetNum2, 2) -4 * getSetNum1 * num);
+
+            if (delta < 0)
+            {
+                msg = "Impossivel Calcular delta. O valor de delta é: " + delta;
+                return msg;
+            }
+            else
+            {
+                x1 = (-getSetNum2 + Math.Sqrt(delta)) / (2 * getSetNum1);
+                x2 = (-getSetNum2 - Math.Sqrt(delta)) / (2 * getSetNum1);
+                msg = "X1: " + x1 + "X2: " + x2 + "Delta: " + delta;
+                return msg;
+            }//Fim do If Else
+        }//Fim do Metodo
+
+        public string DecimalHexa()
+        {
+            int num_decimal = 0;
+            string num_hexadecimal;
+
+            Console.WriteLine("Informe um numero em decimal : ");
+            num_decimal = int.Parse(Console.ReadLine());
+
+            string an = num_hexadecimal = num_decimal.ToString("X");
+            return an;
+        }//Fim do Metodo
+
+        public double ConverterHexaDecimal(string hexadecimal)
+        {
+            double dec = 0;
+            string caract = "";
+            int num = 0;
+            int tamanho = hexadecimal.Length;
+            int pote = tamanho;
+            for (int i = 0; i < tamanho; i++)
+            {
+                pote--;
+                caract = hexadecimal.Substring(i, 1);
+                switch (caract)
+                {
+                    case "A":
+                        num = 10;
+                        break;
+                    case "B":
+                        num = 11;
+                        break;
+                    case "C":
+                        num = 12;
+                        break;
+                    case "D":
+                        num = 13;
+                        break;
+                    case "E":
+                        num = 14;
+                        break;
+                    case "F":
+                        num = 15;
+                        break;
+                    default:
+                        num = Convert.ToInt32(caract);
+                        break;
+                }//fim do switch
+                dec += num * Math.Pow(16, pote);
+            }//fim do for
+            return dec;
+        }//fim do método converter decimal
+        
+
+    }//fim da classe
 }//Fim do Projeto

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculadura
 {
@@ -12,9 +8,9 @@ namespace Calculadura
         ModelCalculadora calculadora = new ModelCalculadora();
 
         //Metodo Construtor
-        public ControlCalculadora() 
+        public ControlCalculadora()
         {
-            this.calculadora = new ModelCalculadora();    
+            this.calculadora = new ModelCalculadora();
         }//Fim do Construtor
 
         public void Coletar()
@@ -28,15 +24,19 @@ namespace Calculadura
 
         public int Menu()
         {
-            Console.WriteLine("-----Menu-----" + 
-                              "\n1.Somar " + 
-                              "\n2.Subtrair" + 
-                              "\n3.Dividir" + 
-                              "\n4.Multiplicar" + 
-                              "\n5.Potência" + 
-                              "\n6.Raiz " + 
-                              "\n7.Tabuada " + 
-                              "\n8.Decimal para Binario" +
+            Console.WriteLine("-----Menu-----" +
+                              "\n1.Somar " +
+                              "\n2.Subtrair" +
+                              "\n3.Dividir" +
+                              "\n4.Multiplicar" +
+                              "\n5.Potência" +
+                              "\n6.Raiz " +
+                              "\n7.Tabuada " +
+                              "\n8.Decimal Para Binario" +
+                              "\n9.Binario Para Decimal" +
+                              "\n10:Bhaskara" +
+                              "\n11.Decimal Para Hexa" +
+                              "\n12.Hexa para Decimal" +
                               "\n0.Sair" +
                               "\n\nEscolha uma das opções acima: ");
 
@@ -97,14 +97,33 @@ namespace Calculadura
                         break;
                     case 8:
                         Console.WriteLine("Informe um Numero: ");
-                        this.calculadora.getSetNum1 = Convert.ToDouble(Console.ReadLine());
-                        Console.WriteLine(this.calculadora.DecimalBinario());
-                    break;
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(this.calculadora.DecimalBinario(n));
+                        break;
+                    case 9:
+                        Console.WriteLine("Informe um Numero: ");
+                        n = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(this.calculadora.BinarioDecimal(n));
+                        break;
+                    case 10:
+                        Coletar();
+                        Console.WriteLine("Informe um terceiro Numero");
+                        double num = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(this.calculadora.Bhaskara(num));
+                        break;
+                    case 11:
+                        Console.WriteLine(this.calculadora.DecimalHexa());
+                        break;
+                    case 12:
+                        Console.WriteLine("Informe um valor em Hexadecimal: ");
+                        Console.WriteLine(this.calculadora.ConverterHexaDecimal(Console.ReadLine()));
+                        break;
+
                     default:
                         Console.WriteLine("Opção Invalida");
                         break;
                 }//Fim do Switch
-            }while(opcao != 0);  
+            } while (opcao != 0);
 
         }//Fim da Operacao
     }//Fim da Classe
