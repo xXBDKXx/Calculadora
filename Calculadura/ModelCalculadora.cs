@@ -113,7 +113,7 @@ namespace Calculadura
         }//fim do método
 
         //It just works!!
-        public string BinarioDecimal(int n)
+        public int BinarioDecimal(int n)
         {
             int dec = 0;
             int resto, basenum = 1;
@@ -124,7 +124,7 @@ namespace Calculadura
                 basenum *=  2;
                 n /= 10;
             }//Fim do While
-            return dec.ToString();
+            return dec;
         }//Fim do metodo
 
         public string Bhaskara(double num)
@@ -149,17 +149,42 @@ namespace Calculadura
             }//Fim do If Else
         }//Fim do Metodo
 
-        public string DecimalHexa()
+        public string ConverterDecimalHexa(int dec)
         {
-            int num_decimal = 0;
-            string num_hexadecimal;
+            int resto = 0;
+            string hexadecimal = "";
 
-            Console.WriteLine("Informe um numero em decimal : ");
-            num_decimal = int.Parse(Console.ReadLine());
-
-            string an = num_hexadecimal = num_decimal.ToString("X");
-            return an;
-        }//Fim do Metodo
+            do
+            {
+                resto = dec % 16;
+                switch (resto)
+                {
+                    case 10:
+                        hexadecimal += "A";
+                        break;
+                    case 11:
+                        hexadecimal += "B";
+                        break;
+                    case 12:
+                        hexadecimal += "C";
+                        break;
+                    case 13:
+                        hexadecimal += "D";
+                        break;
+                    case 14:
+                        hexadecimal += "E";
+                        break;
+                    case 15:
+                        hexadecimal += "F";
+                        break;
+                    default:
+                        hexadecimal += resto;
+                        break;
+                }//fim do switch
+                dec = dec / 16;
+            } while (dec != 0);
+            return new string(hexadecimal.Reverse().ToArray());
+        }//fim do converter
 
         public double ConverterHexaDecimal(string hexadecimal)
         {
@@ -201,6 +226,12 @@ namespace Calculadura
             return dec;
         }//fim do método converter decimal
         
+        public string ConverterBinarioHexa(int bin)
+        {
+            int dec = BinarioDecimal(bin);
+            string hex = ConverterDecimalHexa(dec);
+            return hex;
+        }//Fim do Metodo
 
     }//fim da classe
 }//Fim do Projeto
